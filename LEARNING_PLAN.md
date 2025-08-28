@@ -12,7 +12,7 @@ A comprehensive learning plan for building a Java CLI tic-tac-toe game with QUIC
 
 #### Project structure:
 ``` bash 
-com.matthew_sandoval.t3p2p
+com.matthew_sandoval.t3mesh
 ├── app           // Entry point
 │   └── Main.java
 ├── game          // Core Tic-Tac-Toe logic
@@ -57,64 +57,73 @@ com.matthew_sandoval.t3p2p
 ## Phase 2: Core Game Logic
 
 ### Task 2: Implement basic tic-tac-toe game logic
-- Create Board class with 2D array representation
-- Implement win condition checking algorithms
-- Build Player class and game state management
-- Add move validation logic
+**Files:** `game/Board.java`, `game/Player.java`, `game/Game.java`
+- Create Board class with 2D array representation → `game/Board.java`
+- Implement win condition checking algorithms → `game/Board.java`
+- Build Player class and game state management → `game/Player.java`, `game/Game.java`
+- Add move validation logic → `game/Board.java`
 
 ### Task 3: Create CLI interface
-- Design terminal-based board display
-- Implement user input parsing and validation
-- Add game loop and turn management
-- Create menu system for game options
+**Files:** `cli/ConsoleUI.java`, `cli/InputParser.java`, `util/ConsoleUtils.java`
+- Design terminal-based board display → `cli/ConsoleUI.java`
+- Implement user input parsing and validation → `cli/InputParser.java`
+- Add game loop and turn management → `cli/ConsoleUI.java`
+- Create menu system for game options → `cli/ConsoleUI.java`
 
 ## Phase 3: Networking Research
 
 ### Task 4: Research Java QUIC libraries
+**Files:** Documentation and research notes
 - Explore Netty with QUIC support (netty-incubator-transport-native-quic)
 - Study Java NIO for async networking concepts
 - Compare with Go's QUIC libraries you know
 - Understand Java's CompletableFuture for async operations
 
 ### Task 5: Design network protocol
-- Define message types (join game, make move, game state sync)
-- Choose serialization (JSON, Protocol Buffers, or Java Serialization)
-- Design packet structure and error handling
-- Plan for game state consistency
+**Files:** `network/Message.java`
+- Define message types (join game, make move, game state sync) → `network/Message.java`
+- Choose serialization (JSON, Protocol Buffers, or Java Serialization) → `network/Message.java`
+- Design packet structure and error handling → `network/Message.java`
+- Plan for game state consistency → `network/Message.java`
 
 ## Phase 4: Network Implementation
 
 ### Task 6: Implement QUIC client-server architecture
-- Create basic QUIC server for game hosting
-- Build QUIC client for connecting to games
-- Implement message serialization/deserialization
-- Add connection management and heartbeat
+**Files:** `network/ConnectionManager.java`, `network/Peer.java`
+- Create basic QUIC server for game hosting → `network/ConnectionManager.java`
+- Build QUIC client for connecting to games → `network/ConnectionManager.java`
+- Implement message serialization/deserialization → `network/Message.java`
+- Add connection management and heartbeat → `network/ConnectionManager.java`, `network/Peer.java`
 
 ### Task 7: Add NAT traversal and hole punching
-- Research STUN/TURN servers for NAT discovery
-- Implement UDP hole punching technique
-- Add fallback relay server option
-- Handle different NAT types (Full Cone, Restricted, etc.)
+**Files:** `network/ConnectionManager.java`, `network/Peer.java`
+- Research STUN/TURN servers for NAT discovery → `network/ConnectionManager.java`
+- Implement UDP hole punching technique → `network/ConnectionManager.java`
+- Add fallback relay server option → `network/ConnectionManager.java`
+- Handle different NAT types (Full Cone, Restricted, etc.) → `network/ConnectionManager.java`
 
 ## Phase 5: Game Features
 
 ### Task 8: Implement game session management
-- Create lobby system for player matching
-- Add unique game room IDs
-- Implement spectator mode
-- Build reconnection logic for dropped connections
+**Files:** `game/Game.java`, `network/ConnectionManager.java`, `cli/ConsoleUI.java`
+- Create lobby system for player matching → `cli/ConsoleUI.java`, `network/ConnectionManager.java`
+- Add unique game room IDs → `game/Game.java`
+- Implement spectator mode → `game/Game.java`, `cli/ConsoleUI.java`
+- Build reconnection logic for dropped connections → `network/ConnectionManager.java`
 
 ### Task 9: Add error handling and recovery
-- Handle network timeouts and failures
-- Implement graceful disconnection
-- Add validation for malformed packets
-- Create logging system for debugging
+**Files:** `network/ConnectionManager.java`, `util/ConsoleUtils.java`
+- Handle network timeouts and failures → `network/ConnectionManager.java`
+- Implement graceful disconnection → `network/ConnectionManager.java`
+- Add validation for malformed packets → `network/Message.java`
+- Create logging system for debugging → `util/ConsoleUtils.java`
 
 ### Task 10: Test and optimize
-- Test across different network conditions
-- Measure latency and optimize packet size
-- Add performance monitoring
-- Test NAT traversal with various router configurations
+**Files:** Test files, `network/ConnectionManager.java`
+- Test across different network conditions → Test files
+- Measure latency and optimize packet size → `network/ConnectionManager.java`
+- Add performance monitoring → `util/ConsoleUtils.java`
+- Test NAT traversal with various router configurations → Test files
 
 ## Key Java Concepts to Focus On
 
