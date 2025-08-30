@@ -26,14 +26,14 @@ public class Board {
         }
     }
 
-    public boolean makeMove(int row, int col, char player) {
+    public boolean makeMove(int row, int col, char symbol) {
         if (row < 0 || row > 2 || col < 0 || col > 2) {
             throw new IllegalArgumentException("Row and column must be between 1-3");
         }
         if (grid[row][col] != ' ') {
             return false;
         }
-        grid[row][col] = player;
+        grid[row][col] = symbol;
         return true;
     }
 
